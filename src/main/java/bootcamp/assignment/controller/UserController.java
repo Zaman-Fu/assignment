@@ -40,4 +40,28 @@ public class UserController {
         return new ResponseEntity<>(responseBody,HttpStatus.CREATED);
         
     }
+
+    @PutMapping("/user/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails){
+        User responseBody = userService.updateUser(id, userDetails);
+
+        if(responseBody == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(responseBody,HttpStatus.OK);
+    }
+
+    @DeleteMapping("/user/{id}")
+    public ResponseEntity<User> deleteUser(@PathVariable Long id){
+        User responseBody = userService.deleteUser(id);
+
+        if(responseBody == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(responseBody,HttpStatus.OK);
+    }
+
+
+
+
 }
