@@ -26,9 +26,9 @@ public class UserService {
        Optional<User> user = userRepository.findById(id);
 
        user.get().setFirstName(userDetails.getFirstName());
-       user.get().setLastName(userDetails.getFirstName());
-       user.get().setEmail(userDetails.getFirstName());
-       user.get().setPhoneNumber(userDetails.getFirstName());
+       user.get().setLastName(userDetails.getLastName());
+       user.get().setEmail(userDetails.getEmail());
+       user.get().setPhoneNumber(userDetails.getPhoneNumber());
 
        User updatedUser = userRepository.save(user.get());
 
